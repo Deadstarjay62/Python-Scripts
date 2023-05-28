@@ -8,9 +8,9 @@ if len(argv) != 2:
 db = SQL("sqlite:///students.db")
 # Executes SQL query and stores data into a list of dictionaries
 s = db.execute("SELECT first,middle,last,birth FROM students WHERE house = ? ORDER BY last, first", argv[1])
-# Displays required data 
+# Displays required data
 for a in s:
-    if a['middle'] == None:
+    if a['middle'] is None:
         print(a['first'], a['last'] + ", born", a['birth'])
     else:
         print(a['first'], a['middle'], a['last'] + ", born", a['birth'])

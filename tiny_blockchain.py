@@ -23,7 +23,7 @@ def create_genesis_block():
 def next_block(last_block):
     new_index = last_block.index + 1
     new_timestamp = dt.datetime.now()
-    new_data = "This is block " + str(new_index)
+    new_data = f"This is block {str(new_index)}"
     new_hash = last_block.hash
     return Block(new_index, new_timestamp, new_data, new_hash)
 
@@ -32,9 +32,9 @@ prev_block = myblockchain[0]
 
 num = 20
 
-for i in range(num):
+for _ in range(num):
     block_to_add = next_block(prev_block)
     myblockchain.append(block_to_add)
     prev_block = block_to_add
-    print("Block #{} has been added to your blockchain".format(prev_block.index))
-    print("Hash: {}\n".format(prev_block.hash))
+    print(f"Block #{prev_block.index} has been added to your blockchain")
+    print(f"Hash: {prev_block.hash}\n")

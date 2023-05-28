@@ -5,12 +5,11 @@ cs = 0
 # Length of card number
 c = len(cno)
 # 1st check for valid card number
-if c in [13, 15, 16]:
+if c in {13, 15, 16}:
     cnn = cn
     while cnn > 9:
         scn = str(cnn)
-        i = int(scn[-2])
-        i = i*2
+        i = int(scn[-2]) * 2
         while i:
             j = i % 10
             cs += j
@@ -31,25 +30,22 @@ if c in [13, 15, 16]:
                 print("VISA")
             else:
                 print("INVALID")
-        # Check for AMEX
         elif c == 15:
             t = cno
-            fn = t[0:2]
+            fn = t[:2]
             if fn in ['34', '37']:
                 print("AMEX")
             else:
                 print("INVALID")
-        # Check for MASTERCARD and VISA
         elif c == 16:
             t = cno
-            fn = t[0:2]
+            fn = t[:2]
             if fn in ['51', '52', '53', '54', '55']:
                 print("MASTERCARD")
+            elif t[0] == '4':
+                print("VISA")
             else:
-                if t[0] == '4':
-                    print("VISA")
-                else:
-                    print("INVALID")
+                print("INVALID")
     else:
         print("INVALID")
 else:

@@ -11,10 +11,7 @@ def isPhoneNumber(num):
             return False
     if num[7] != '-':
         return False
-    for i in range(8,12):
-        if not num[i].isdecimal():
-            return False
-    return True
+    return all(num[i].isdecimal() for i in range(8, 12))
 
 message = input("Enter text:")
 foundnum = False
