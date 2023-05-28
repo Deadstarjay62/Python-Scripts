@@ -2,7 +2,7 @@ import random, time
 
 
 name = input("What is your name?:")
-print("Hello " + name + " ! Welcome to Guess the Number game!")
+print(f"Hello {name} ! Welcome to Guess the Number game!")
 print("I'm guessing a number between 1 and 20, guess it and you win..")
 num = random.randint(1,20)
 
@@ -17,7 +17,7 @@ for i in range(1,7):
         break
 
 if gnum == num:
-    print("Congrats " + name + ", you guessed it in " + str(i) + " rounds!")
+    print(f"Congrats {name}, you guessed it in {str(i)} rounds!")
 else:
-    print("Sorry, you lost, I had guessed " + str(num))
+    print(f"Sorry, you lost, I had guessed {num}")
 time.sleep(5)
